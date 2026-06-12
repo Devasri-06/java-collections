@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        n = Math.abs(n); // Ignore sign if present
+
+        int lastDigit = n % 10;
+
+        while (n >= 10) {
+            n /= 10;
+        }
+
+        int firstDigit = n;
+
+        System.out.println(firstDigit + lastDigit);
+    }
+}
