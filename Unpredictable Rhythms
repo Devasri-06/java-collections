@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        // Validate input
+        if (a <= 0 || b <= 0 || a >= b) {
+            System.out.println("Provide valid input");
+            return;
+        }
+
+        for (int num = a; num <= b; num++) {
+            if (num < 2) {
+                continue;
+            }
+
+            int i = 2;
+            boolean isPrime = true;
+
+            // while loop for checking prime
+            while (i <= Math.sqrt(num)) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+                i++;
+            }
+
+            if (isPrime) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
