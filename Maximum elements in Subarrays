@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        String line = sc.nextLine();
+        String[] arr = line.split(" ");
+
+        for (String s : arr) {
+            list.add(Integer.parseInt(s));
+        }
+
+        int k = sc.nextInt();
+
+        int n = list.size();
+
+        for (int i = 0; i <= n - k; i++) {
+            int max = list.get(i);
+
+            for (int j = i; j < i + k; j++) {
+                if (list.get(j) > max) {
+                    max = list.get(j);
+                }
+            }
+
+            System.out.print(max);
+
+            if (i < n - k) {
+                System.out.print(" ");
+            }
+        }
+    }
+}
