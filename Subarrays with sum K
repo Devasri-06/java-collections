@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String line = sc.nextLine();
+        String[] parts = line.trim().split("\\s+");
+
+        int[] arr = new int[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            arr[i] = Integer.parseInt(parts[i]);
+        }
+
+        int k = Integer.parseInt(sc.nextLine().trim());
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+
+        int prefixSum = 0;
+        int count = 0;
+
+        for (int num : arr) {
+            prefixSum += num;
+
+            count += map.getOrDefault(prefixSum - k, 0);
+
+            map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
+        }
+
+        System.out.println(count);
+    }
+}
